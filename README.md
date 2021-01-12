@@ -1,1 +1,1 @@
-# go-weather-app
+# go-qod-app
