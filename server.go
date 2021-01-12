@@ -5,7 +5,6 @@ import (
 	"io/ioutil"
 	"log"
 	"net/http"
-	"os"
 
 	"github.com/joho/godotenv"
 )
@@ -17,12 +16,10 @@ func main() {
 		log.Fatalf("Error loading .env file")
 	}
 
-	NASA_API_KEY := os.Getenv("NASA_API_KEY")
-
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		// fmt.Fprintf(w, "Today's amazing weather!")
 
-		resp, err := http.Get("https://api.nasa.gov/insight_weather/?api_key=" + NASA_API_KEY + "&feedtype=json&ver=1.0")
+		resp, err := http.Get("https://quotes.rest/qod?language=en")
 		if err != nil {
 			log.Fatalln(err)
 		}
