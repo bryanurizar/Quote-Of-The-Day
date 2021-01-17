@@ -5,19 +5,11 @@ import (
 	"io/ioutil"
 	"log"
 	"net/http"
-
-	"github.com/joho/godotenv"
 )
 
 func main() {
-	err := godotenv.Load(".env")
-
-	if err != nil {
-		log.Fatalf("Error loading .env file")
-	}
 
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		// fmt.Fprintf(w, "Today's amazing weather!")
 
 		resp, err := http.Get("https://quotes.rest/qod?language=en")
 		if err != nil {
