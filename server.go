@@ -43,7 +43,7 @@ func serveTemplate(w http.ResponseWriter, r *http.Request) {
 	}
 
 	var quotes []Quote
-	json.Unmarshal([]byte(string(body)), &quotes)
+	json.Unmarshal([]byte(body), &quotes)
 
 	if err != nil {
 		fmt.Println("error:", err)
