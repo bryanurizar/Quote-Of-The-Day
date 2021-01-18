@@ -26,10 +26,9 @@ func main() {
 func serveTemplate(w http.ResponseWriter, r *http.Request) {
 	resp, err := http.Get("https://type.fit/api/quotes")
 	if err != nil {
-		// Equivalenet to Println with a call to os.Exit that follows
 		log.Fatalln(err)
 	}
-	// The defer keyword will make the resp.Body.Close() not run until the surrounding function returns
+
 	defer resp.Body.Close()
 
 	body, err := ioutil.ReadAll(resp.Body)
@@ -58,6 +57,4 @@ func serveTemplate(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		panic(err)
 	}
-
-	// fmt.Fprintf(w, quotes[rand.Intn(1641)].Text)
 }
